@@ -7,7 +7,7 @@ var app = new Vue({
         completed: false,
       },
       {
-        text: "pushare esercizio su GitHub",
+        text: "Pushare esercizio su GitHub",
         completed: false,
       },
       {
@@ -19,12 +19,14 @@ var app = new Vue({
         completed: false,
       },
       {
-        text: "pushare modifiche su GitHub",
+        text: "Pushare modifiche su GitHub",
         completed: false,
       },
     ],
     toDoDoing: [],
     toDoItem: "",
+    h1Message: "Vue To Do List",
+    emptyMessage: "Inserisci un elemento nella lista To-Do",
     alertMessage: "Inserimento non consentito!\nScrivi un nuovo To-Do da aggiungere in elenco"
   },
   methods: {
@@ -37,9 +39,17 @@ var app = new Vue({
       this.checkToDo(newToDo) ? list.push({ text: newToDo, completed: false }) : alert(this.alertMessage);
       this.toDoItem = "";
     },
+    reAddToDo: function (index) {
+      let reAdd = this.toDoDoing.splice(index, 1);
+      reAdd[0].completed = false
+      this.toDoList.push(reAdd[0]);
+    },
     removeToDo: function (index) {
       let removed = this.toDoList.splice(index, 1);
       this.toDoDoing.push(removed[0]);
+    },
+    deleteToDo: function (index) {
+      this.toDoDoing.splice(index, 1);
     },
     completedToDo: function (index) {
       let element = this.toDoList[index];

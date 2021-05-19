@@ -4,11 +4,77 @@
   padding: 0;
   margin: 0;
 }
+body {
+  background-color: #c2aeaa;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+  color: #9c312b;
+}
+
+h1,
+.add_to_do {
+  margin: 20px auto;
+}
 
 button,
-.to_do_list > li {
+.to_do_list span,
+i {
   cursor: pointer;
 }
+
 .line-through {
   text-decoration: line-through;
+}
+
+/* ----- input ----- */
+input,
+button {
+  padding: 5px;
+}
+
+/* ----- list ----- */
+section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.to_do,
+.to_do_doing {
+  display: flex;
+  width: 45%;
+  height: 40vh;
+  padding: 5px 25px;
+  overflow: auto;
+  border: 1px solid #9c312b;
+  border-radius: 10px;
+}
+.to_do h3 {
+  margin: auto;
+  font-style: italic;
+}
+
+li {
+  margin: 5px 0;
+  line-height: 25px;
+}
+li > span,
+li > i {
+  vertical-align: middle;
+}
+
+section i {
+  font-size: 20px;
+  margin: 0 5px;
+}
+.fa-undo {
+  color: #159b15;
+}
+.fa-times-circle {
+  color: #ff0000;
 }

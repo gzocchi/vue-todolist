@@ -21,20 +21,40 @@
 
     <main id="root">
 
+        <h1>{{ h1Message }}</h1>
+
         <div class="add_to_do">
             <input @keyup.enter="addToDo" type="text" placeholder="Nuovo To-Do" v-model="toDoItem">
             <button @click="addToDo">Aggiungi</button>
         </div>
 
-        <div class="to_do">
-            <ul v-if="toDoList.length > 0" class="to_do_list">
-                <li v-for="(ToDo, index) in toDoList">
-                    <span @click="completedToDo(index)" :class='ToDo.completed ? "class: line-through" : ""'>{{ ToDo.text }}</span>
-                    <i @click="removeToDo(index)" class="far fa-times-circle"></i>
-                </li>
-            </ul>
-            <h3 v-else >Inserisci un To-Do nella lista</h3>
-        </div>
+        <section>
+
+            <div class="to_do">
+                <ul v-if="toDoList.length > 0" class="to_do_list">
+                    <li v-for="(ToDo, index) in toDoList">
+                        <span @click="completedToDo(index)" :class='ToDo.completed ? "class: line-through" : ""'>{{
+                            ToDo.text }}</span>
+                        <i @click="removeToDo(index)" class="far fa-times-circle"></i>
+                    </li>
+                </ul>
+                <h3 v-else>{{ emptyMessage }}</h3>
+            </div>
+
+            <div v-if="toDoDoing.length > 0" class="to_do_doing">
+                <ul class="to_do_doing_list">
+                    <li v-for="(doing, index) in toDoDoing">
+                        <span :class='doing.completed ? "class: line-through" : ""'>
+                            {{doing.text }}</span>
+                        <i @click="reAddToDo(index)" class="fas fa-undo"></i>
+                        <i @click="deleteToDo(index)" class="far fa-times-circle"></i>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+
 
     </main>
 
