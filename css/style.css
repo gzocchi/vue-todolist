@@ -4,3 +4,11 @@
   padding: 0;
   margin: 0;
 }
+
+button,
+.to_do_list > li {
+  cursor: pointer;
+}
+.line-through {
+  text-decoration: line-through;
+}

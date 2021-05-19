@@ -21,6 +21,21 @@
 
     <main id="root">
 
+        <div class="add_to_do">
+            <input @keyup.enter="addToDo" type="text" placeholder="Nuovo To-Do" v-model="toDoItem">
+            <button @click="addToDo">Aggiungi</button>
+        </div>
+
+        <div class="to_do">
+            <ul v-if="toDoList.length > 0" class="to_do_list">
+                <li v-for="(ToDo, index) in toDoList">
+                    <span @click="completedToDo(index)" :class='ToDo.completed ? "class: line-through" : ""'>{{ ToDo.text }}</span>
+                    <i @click="removeToDo(index)" class="far fa-times-circle"></i>
+                </li>
+            </ul>
+            <h3 v-else >Inserisci un To-Do nella lista</h3>
+        </div>
+
     </main>
 
     <script src="js/script.js"></script>
