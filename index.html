@@ -33,8 +33,9 @@
             <div class="to_do">
                 <ul v-if="toDoList.length > 0" class="to_do_list">
                     <li v-for="(ToDo, index) in toDoList">
-                        <span @click="completedToDo(index)" :class='ToDo.completed ? "class: line-through" : ""'>{{
-                            ToDo.text }}</span>
+                        <span @click="completedToDo(index)" :class='ToDo.completed ? "line-through" : ""'>
+                            {{ ToDo.text }}
+                        </span>
                         <i @click="removeToDo(index)" class="far fa-times-circle"></i>
                     </li>
                 </ul>
@@ -44,8 +45,9 @@
             <div v-if="toDoDoing.length > 0" class="to_do_doing">
                 <ul class="to_do_doing_list">
                     <li v-for="(doing, index) in toDoDoing">
-                        <span :class='doing.completed ? "class: line-through" : ""'>
-                            {{doing.text }}</span>
+                        <span :class='doing.completed ? "line-through" : ""'>
+                            {{ doing.text }}
+                        </span>
                         <i @click="reAddToDo(index)" class="fas fa-undo"></i>
                         <i @click="deleteToDo(index)" class="fas fa-trash-alt"></i>
                     </li>
@@ -53,8 +55,6 @@
             </div>
 
         </section>
-
-
 
     </main>
 

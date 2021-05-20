@@ -53,7 +53,8 @@ var app = new Vue({
     },
     completedToDo: function (index) {
       let element = this.toDoList[index];
-      element.completed ? element.completed = false : element.completed = true;
+      element.completed = !element.completed
+      // element.completed ? element.completed = false : element.completed = true;
       // this.toDoList[index].completed ? this.toDoList[index].completed = false : this.toDoList[index].completed = true;
     },
   },
